@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type"text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+
+	<div class="topnav">
+		<a class="active" th:href="@{home}">Home</a> <a href="#news">Novedades</a>
+		<a href="#contact">Contacto</a> <a href="#about">Acerca de</a> 
+		<a  th:href="@{/loginEmp/login_Emp}">Iniciar seccion</a>
+
+		
+			
+	</div>
+
+
+	<div class="bg-image"></div>
+
+	<div class="bg-text">
+		<h1>BIENVENIDOS A INTERTEL</h1>
+		<p>Conectado con vos!!</p>
+	</div>
+	
+	
+</body>
+</html>

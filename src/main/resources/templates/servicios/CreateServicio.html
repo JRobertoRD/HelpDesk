@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type"text/css" th:href="@{/css/style.css}">
+
+<script src="../js/formatoMoneda.js"></script>
+<script src="../js/Validaciones.js"></script>
+
+</head>
+<body>
+
+	
+	<div id="id01" class="modal">
+		<form class="modal-content" id="validationForm" th:object="${servicio}" th:action = "@{/ServiController/save}" method="post" >
+			<div class="container">
+				<h1 th:text = "${titulo}"></h1>
+				<p>Llene los siguientes campos.</p>
+				<hr>
+					<input type="hidden" th:fiel="*{idServicio}">
+					<label for="nombre"><b>Nombre</b></label> 
+					<input type="text" id="letras" onkeyup="validar()" onblur="validar()"
+					 th:field="*{nombre}" placeholder="Ingresar Nombre servicio" name="letras" required /> 
+					 <br>
+					 <div id="message" style=" left: 10px; top: 50px; background-color: Yellow; z-index: 10" hidden>
+					     El campo no puede estar vacio. Introduzca solo letras.
+					</div>
+					
+					<label for="precio"><b>Precio</b></label>
+					 <span class="input-symbol-colon">
+						<input type="number"  id="money"  th:field="*{precio}"  name="precio" required />
+					</span>
+					<!-- onkeyup="format()"  onchange="format()" -->
+					
+					 <br> <br>
+					<label for="internet"><b>Internet</b>
+					 <select th:field="*{internet.idInternet}" id "nombre" style="margin-bottom:15px"> 
+       						<option th:each="inter:${internet}"
+								th:value = "${inter.idInternet}"  
+								th:text = "${inter.nombre}"       							
+       						/>
+       				</select>
+       				
+       				<label for="telefonia"><b>Telefonia</b>
+					 <select th:field="*{telefonia.idTelefonia}" id "nombre" style="margin-bottom:15px"> 
+       						<option th:each="telf:${telefono}"
+								th:value = "${telf.idTelefonia}"  
+								th:text = "${telf.nombre}"       							
+       						/>
+       				</select>
+       				
+       				<label for="cable"><b>Cable</b>
+					 <select th:field="*{cable.idCable}" id "nombre" style="margin-bottom:15px"> 
+       						<option th:each="cable:${cable}"
+								th:value = "${cable.idCable}"  
+								th:text = "${cable.nombre}"       							
+       						/>
+       				</select>
+     			    
+
+				<div class="clearfix">
+					<button type="button"
+						onclick="document.getElementById('id01').style.display='none'" 
+						class="cancelbtn2">Cancelar</button>
+					<button type="submit" class="signup" id="botonRegistrar" hidden>Registrar nuevo servicio</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+
+
+</body>
+</html>
